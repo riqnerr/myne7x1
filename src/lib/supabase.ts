@@ -68,12 +68,55 @@ export const deleteFile = async (bucket: string, path: string) => {
 export const incrementDownloadCount = async (productId: string) => {
   const { error } = await supabase
     .from('products')
-    .update({ 
-      download_count: supabase.raw('COALESCE(download_count, 0) + 1') 
-    })
-    .eq('id', productId)
+    .rpc('increment_download_count', { product_id: productId })
   
   if (error) throw error
+}
+
+// Helper function to get products with filters
+export const getProducts = async (filters?: {
+  category?: string
+  search?: string
+  featured?: boolean
+  limit?: number
+}) => {
+  let query = supabase
+    .from('products')
+    .select('*')
+    .order('created_at', { ascending: false })
+
+  if (filters?.category) {
+    query = query.eq('category', filters.category)
+  }
+
+  if (filters?.search) {
+    query = query.or(`name.ilike.%${filters.search}%,description.ilike.%${filters.search}%`)
+  }
+
+  if (filters?.featured) {
+    query = query.eq('is_featured', true)
+  }
+
+  if (filters?.limit) {
+    query = query.limit(filters.limit)
+  }
+
+  const { data, error } = await query
+  
+  if (error) throw error
+  return data
+}
+
+// Helper function to get product by ID
+export const getProductById = async (id: string) => {
+  const { data, error } = await supabase
+    .from('products')
+    .select('*')
+    .eq('id', productId)
+    .single()
+  
+  if (error) throw error
+  return data
 }
 export interface UserProfile {
   id: string
