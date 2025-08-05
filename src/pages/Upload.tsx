@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useAuth } from '../contexts/AuthContext'
 import { supabase, uploadFile } from '../lib/supabase'
 import { 
-  Upload, 
+  Upload as UploadIcon, 
   Image, 
   Link, 
   DollarSign, 
@@ -117,7 +117,7 @@ export function Upload() {
     return (
       <div className="text-center py-12">
         <div className="w-16 h-16 bg-purple-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
-          <Upload className="w-8 h-8 text-purple-400" />
+          <UploadIcon className="w-8 h-8 text-purple-400" />
         </div>
         <h2 className="text-2xl font-bold text-white mb-4">Sign in Required</h2>
         <p className="text-purple-200">Please sign in to upload products.</p>
@@ -142,7 +142,7 @@ export function Upload() {
       {/* Header */}
       <div className="text-center mb-8">
         <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
-          <Upload className="w-8 h-8 text-white" />
+          <UploadIcon className="w-8 h-8 text-white" />
         </div>
         <h1 className="text-3xl font-bold text-white mb-2">Upload Product</h1>
         <p className="text-purple-200">Add a new product to the digital galaxy</p>
@@ -256,7 +256,7 @@ export function Upload() {
           {/* Product File Upload */}
           <div>
             <label className="flex items-center gap-2 text-sm font-medium text-purple-200 mb-2">
-              <Upload className="w-4 h-4" />
+              <UploadIcon className="w-4 h-4" />
               Product File
             </label>
             <input
@@ -347,7 +347,7 @@ export function Upload() {
               </>
             ) : (
               <>
-                <Save className="w-5 h-5 mr-2" />
+                <UploadIcon className="w-5 h-5 mr-2" />
                 Upload Product
               </>
             )}
