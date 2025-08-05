@@ -2,6 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Force better text visibility */
+body {
+  color: #ffffff;
+}
+
+/* Ensure form elements have proper contrast */
+input, textarea, select {
+  color: #ffffff !important;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #a855f7 !important;
+}
+
+/* Fix option colors in selects */
+option {
+  background-color: #1f2937 !important;
+  color: #ffffff !important;
+}
+
 /* Custom Animations */
 @keyframes fade-in {
   from {

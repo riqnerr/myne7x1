@@ -194,16 +194,16 @@ export function Upload() {
               name="category"
               value={formData.category}
               onChange={handleInputChange}
-              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+              className="w-full px-4 py-3 bg-gray-800 border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
             >
-              <option value="">Select a category</option>
-              <option value="software">Software</option>
-              <option value="design">Design</option>
-              <option value="template">Template</option>
-              <option value="ebook">E-book</option>
-              <option value="course">Course</option>
-              <option value="tool">Tool</option>
-              <option value="other">Other</option>
+              <option value="" className="bg-gray-800 text-white">Select a category</option>
+              <option value="software" className="bg-gray-800 text-white">Software</option>
+              <option value="design" className="bg-gray-800 text-white">Design</option>
+              <option value="template" className="bg-gray-800 text-white">Template</option>
+              <option value="ebook" className="bg-gray-800 text-white">E-book</option>
+              <option value="course" className="bg-gray-800 text-white">Course</option>
+              <option value="tool" className="bg-gray-800 text-white">Tool</option>
+              <option value="other" className="bg-gray-800 text-white">Other</option>
             </select>
           </div>
 
