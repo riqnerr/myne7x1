@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
 import ProductCard from '../components/ProductCard';
-import MagicalLoader from '../components/MagicalLoader';
+import { MagicalLoader } from '../components/MagicalLoader';
 import { Search, Filter } from 'lucide-react';
 
 interface Product {
