@@ -66,9 +66,12 @@ export const deleteFile = async (bucket: string, path: string) => {
 
 // Helper function to increment download count
 export const incrementDownloadCount = async (productId: string) => {
-  const { error } = await supabase.rpc('increment_download_count', {
-    product_id: productId
-  })
+  const { error } = await supabase
+    .from('products')
+    .update({ 
+      download_count: supabase.raw('COALESCE(download_count, 0) + 1') 
+    })
+    .eq('id', productId)
   
   if (error) throw error
 }
